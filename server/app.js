@@ -3,12 +3,15 @@ const express = require('express');
 // import express-graphql
 const { graphqlHTTP } = require('express-graphql');
 
+const schema = require('./schema/schema');
+
 // initialize express
 const app = express();
 
 // create a graphql route
 app.use('/graphql', graphqlHTTP({
-    graphiql: true
+    graphiql: true,
+    schema: schema,
 }));
 
 // set listening port with a callback function
